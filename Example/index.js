@@ -60,9 +60,7 @@ async function updateDanhSach() {
   fs.writeFileSync(filePath, danhSach.join('\n'), { encoding: 'utf8' });
 
   console.log('Danh sách đã cập nhật:', danhSach);
-
   await searchUser(danhSach);
-
 }
 
 
