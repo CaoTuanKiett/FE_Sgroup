@@ -4,6 +4,7 @@ const readline = require('readline');
 
 const filePath = path.resolve("./danh-sach.txt");
 
+
 function getUserInput() {
   const rl = readline.createInterface({
     input: process.stdin,
@@ -11,21 +12,32 @@ function getUserInput() {
   });
 
   return new Promise((resolve) => {
-    rl.question('Nhập thông tin \n Họ tên: ', (fullName) => {
-      rl.question('Tuổi: ', (age) => {
-        rl.question('Chuyên môn: ', (expertise) => {
-          rl.close();
-
-          resolve({
-            fullName: fullName.trim(),
-            age: age.trim(),
-            expertise: expertise.trim()
-          });
+    const askForAge = () => {
+      rl.question('Nhập thông tin \n Họ tên: ', (fullName) => {
+        rl.question('Tuổi: ', (age) => {
+          if (isNaN(age)) {
+            console.log('Tuổi không hợp lệ. Vui lòng nhập lại.');
+            askForAge(); 
+          } else {
+            rl.question('Chuyên môn: ', (expertise) => {
+              rl.close();
+  
+              resolve({
+                fullName: fullName.trim(),
+                age: parseInt(age), 
+                expertise: expertise.trim()
+              });
+            });
+          }
         });
       });
-    });
+    };
+
+    askForAge();
   });
 }
+
+
 
 async function updateDanhSach() {
   const danhSach = fs.existsSync(filePath) ? fs.readFileSync(filePath, { encoding: 'utf8' }).split('\n') : [];
