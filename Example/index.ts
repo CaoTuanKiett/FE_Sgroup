@@ -46,7 +46,6 @@ class UserManagement {
         continue;
       }
 
-      const newData = `${userInput.fullName}, ${userInput.age}, ${userInput.expertise}`;
       danhSach.push(userInput);
 
       const answer = readlineSync.question('Bạn có muốn tiếp tục? (yes/no): ').trim().toLowerCase();
@@ -62,7 +61,12 @@ class UserManagement {
     const searchTerm = readlineSync.question('Bạn muốn tìm gì: ');
 
     const results = danhSach.filter((user) => {
-      return user.fullName.toLowerCase().includes(searchTerm.toLowerCase());
+      const searchLower = searchTerm.toLowerCase();
+      return (
+        user.fullName.toLowerCase().includes(searchLower) ||
+        user.age.toString().includes(searchLower) ||  
+        user.expertise.toLowerCase().includes(searchLower) 
+      );
     });
 
     if (results.length > 0) {

@@ -3,4 +3,3 @@ Truyen, 25, BE
 Tuan Kiet, 33, FE
 Khoa, 23, BE
 Bắc, 22, BE
-kiki, 22, kiki
