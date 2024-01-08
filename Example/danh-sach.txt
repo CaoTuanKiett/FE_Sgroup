@@ -1,11 +1,6 @@
-TuanKiet,21,FE
-Truyen,25,BE
-hehe, 33, 22
+TuanKiet, 21, FE
+Truyen, 25, BE
 Tuan Kiet, 33, FE
 Khoa, 23, BE
 Bắc, 22, BE
-Đức, 22, FE
-hehe, 22, hhh
-haha, 2, hâh
-haha, 22, ahah
-hueue, 33, hehe
+kiki, 22, kiki
